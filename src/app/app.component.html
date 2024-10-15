@@ -1,6 +1,10 @@
-<h1>Welcome to Password Generator</h1>
-<div>
-  <button routerLink="/generate">Generate Password</button>
-  <button routerLink="/check">Check Password Strength</button>
+<div class="app-background">
+  <h1>Welcome to Password Generator</h1>
+  <div class="navigation-buttons">
+    <button mat-button routerLink="/generate" class="animated-button"
+    [ngClass]="{'active-button': activeRoute === '/generate'}">Generate Password</button>
+    <button mat-button routerLink="/check" class="animated-button"
+    [ngClass]="{'active-button': activeRoute === '/check'}">Check Password Strength</button>
+  </div>
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>

@@ -1,0 +1,126 @@
+.app-background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a 30%, #111111 90%);
+    overflow: hidden;
+    position: relative;
+    color: #ffffff;
+    font-family: 'Press Start 2P', cursive;
+  
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+          #333333 0,
+          #333333 1px,
+          transparent 1px,
+          transparent 30px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          #333333 0,
+          #333333 1px,
+          transparent 1px,
+          transparent 30px
+        );
+      opacity: 0.1;
+      pointer-events: none; // Ensure the overlay does not block clicks
+    }
+  
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 0, 123, 0.2), transparent);
+      opacity: 0.4;
+      pointer-events: none; // Ensure the overlay does not block clicks
+      animation: pulse 6s infinite alternate;
+    }
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #ff007b;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 8px #ff007b, 0 0 12px #ff007b;
+    animation: neon-flicker 2s infinite alternate;
+    position: relative; // Ensure it’s above the pseudo-elements
+    z-index: 1;
+  }
+  
+  .navigation-buttons {
+    display: flex;
+    gap: 1.5rem;
+    position: relative; // Ensure it’s above the pseudo-elements
+    z-index: 1;
+  
+    .animated-button {
+      padding: 0.75rem 1.5rem;
+      color: #202124;
+      background-color: #c700ff;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Press Start 2P', cursive;
+      text-transform: uppercase;
+      box-shadow: 0 0 8px rgba(199, 0, 255, 0.7), 0 0 6px rgba(0, 126, 255, 0.5);
+      cursor: pointer;
+      animation: button-glow 3s infinite alternate;
+      transition: all 0.3s ease-in-out;
+  
+      &:hover {
+        background-color: #007eff;
+        color: #ffffff;
+        box-shadow: 0 0 15px rgba(0, 126, 255, 0.8), 0 0 10px rgba(199, 0, 255, 0.8);
+      }
+  
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 20px rgba(255, 234, 0, 0.8), 0 0 10px rgba(199, 0, 255, 0.8);
+      }
+    }
+  }
+  
+  @keyframes pulse {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 0.6;
+    }
+  }
+  
+  @keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
+    }
+    20%, 24%, 55% {
+      opacity: 0.6;
+    }
+  }
+  
+  @keyframes button-glow {
+    0% {
+      box-shadow: 0 0 8px rgba(199, 0, 255, 0.5), 0 0 6px rgba(0, 126, 255, 0.3);
+    }
+    100% {
+      box-shadow: 0 0 15px rgba(199, 0, 255, 0.7), 0 0 12px rgba(0, 126, 255, 0.6);
+    }
+  }
+// Additional style for the active button
+.active-button {
+    background-color: #007eff !important; // Hot Pink for active state
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 0, 123, 0.8), 0 0 15px rgba(255, 234, 0, 0.6);
+    transform: scale(1.05); // Slightly enlarge to indicate active state
+    transition: all 0.3s ease-in-out;
+  }  
