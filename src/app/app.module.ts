@@ -7,6 +7,7 @@ import { PasswordGeneratorComponent } from './Components/password-generator/pass
 import { PasswordGeneratorModule } from './Components/password-generator/password-generator.module';
 import { PasswordStrengthCheckerComponent } from './Components/password-strength-checker/password-strength-checker.component';
 import { PasswordStrengthCheckerModule } from './Components/password-strength-checker/password-strength-checker.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PasswordStrengthCheckerModule } from './Components/password-strength-ch
     BrowserModule,
     AppRoutingModule,
     PasswordGeneratorModule,
-    PasswordStrengthCheckerModule
+    PasswordStrengthCheckerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
